@@ -45,11 +45,11 @@ def main():
         data_list.append('%s' % (column[1]))
         #sheet.update_cell(1, rowCounter,'%s' %(column[0]))
         #sheet.update_cell(2, rowCounter,'%s' %(column[1]))
-        rowCounter += 1
+        #rowCounter += 1
         jsonData += tmp
-
+    #sheet.resize(1)
+    sheet.append_row(data_list)
     # delete last ','
-    sheet.append_row(str(data_list)[1:-1])
     print(jsonData[0:-1] + '}]')
     print(str(data_list)[1:-1])
 
