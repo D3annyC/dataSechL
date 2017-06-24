@@ -1,12 +1,9 @@
 # -*- coding: utf8 -*-
 import json
-import math
 import requests
+import gspread
 from lxml import etree
 from apscheduler.schedulers.blocking import BlockingScheduler
-import datetime
-import codecs
-import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 sched= BlockingScheduler()
@@ -48,7 +45,6 @@ def main():
         jsonData += tmp
 
     # delete last ','
-    print(datetime.datetime.now())
     print(jsonData[0:-1] + '}]')
 
 if __name__ == "__main__":
