@@ -8,7 +8,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 sched= BlockingScheduler()
 
-@sched.scheduled_job('interval', minutes=4)
+@sched.scheduled_job('interval', minutes=5)
 def main():
     # use creds to create a client to interact with the Google Drive API
     scope = ['https://spreadsheets.google.com/feeds']
@@ -46,10 +46,10 @@ def main():
         time_tmp =time[2].split(':')
         afternoonTime +=int(time_tmp[0])
         time_tmp[0] =str(afternoonTime)
-        print(time_tmp)
+        #print(time_tmp)
         for hms in time_tmp:
             HTime_tmp += hms + ":"
-        print(HTime_tmp[0:-1])
+        #print(HTime_tmp[0:-1])
         time[2] =HTime_tmp[0:-1]
     elif time[1] == "上午":
         print(time)
