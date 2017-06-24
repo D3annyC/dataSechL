@@ -23,6 +23,7 @@ def main():
     result.encoding='utf-8'
     root = etree.fromstring(result.content, etree.HTMLParser())
     jsonData = "["
+    data_list=[]
 
     #split string from caption
     venRowData = root.xpath("//section/table[@class='table1']/caption/text()")
@@ -34,18 +35,23 @@ def main():
     # add ven and time
     venInfo ='{"ven":"'+ven[0]+'","time":"'+time[0]+'",'
     jsonData +=venInfo
+    data_list.append(time[0])
+    
 
     rowCounter =2
     for row in root.xpath("//section/table[@class='table1']/tbody/tr[position()>1]"):
         column = row.xpath("./td/text()")
         tmp= '"%s":"%s",' % (column[0], column[1])
+        data_list.append('%s' % (column[1]))
         #sheet.update_cell(1, rowCounter,'%s' %(column[0]))
         sheet.update_cell(2, rowCounter,'%s' %(column[1]))
         rowCounter += 1
         jsonData += tmp
 
     # delete last ','
+    sheet.append_row(str(data_list)[1:-1])
     print(jsonData[0:-1] + '}]')
+    print(str(data_list)[1:-1])
 
 if __name__ == "__main__":
     main()
