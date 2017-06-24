@@ -44,7 +44,7 @@ def main():
         tmp= '"%s":"%s",' % (column[0], column[1])
         data_list.append('%s' % (column[1]))
         #sheet.update_cell(1, rowCounter,'%s' %(column[0]))
-        sheet.update_cell(2, rowCounter,'%s' %(column[1]))
+        #sheet.update_cell(2, rowCounter,'%s' %(column[1]))
         rowCounter += 1
         jsonData += tmp
 
