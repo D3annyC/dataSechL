@@ -42,20 +42,19 @@ def main():
         afternoonTime +=int(time_tmp[0])
         time_tmp[0] =str(afternoonTime)
         #print(time_tmp)
-    
-    #fix 12 and 00 issue
-    time_tmp =time[2].split(':')
-    if time_tmp[0] == '12':
-        time_tmp[0] = '00'
-    if time_tmp[0] == '00':
-        time_tmp[0] = '12'
+        if time_tmp[0] == '12':
+            time_tmp[0] = '00'
+    if time[1] == "上午":
+        time_tmp =time[2].split(':')
+        #print(time_tmp)
+        if time_tmp[0] == '00':
+            time_tmp[0] = '12'
     
     #put time together
     for hms in time_tmp:
         HTime_tmp += hms + ":"
         #print(HTime_tmp[0:-1])
     time[2] =HTime_tmp[0:-1]
-      
     data_list.append(time[0])
     data_list.append(time[2])
     
