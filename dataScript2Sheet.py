@@ -47,8 +47,8 @@ def main():
     if time[1] == "上午":
         time_tmp =time[2].split(':')
         #print(time_tmp)
-        if time_tmp[0] == '00':
-            time_tmp[0] = '12'
+        if time_tmp[0] == '12':
+            time_tmp[0] = '00'
     
     #put time together
     for hms in time_tmp:
