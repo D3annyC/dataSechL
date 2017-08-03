@@ -17,7 +17,7 @@ def main():
 
     # Find a workbook by name and open the first sheet
     # Make sure you use the right name here.
-    sheet = client.open("20170710_dataScript_ven1").sheet1
+    sheet = client.open("20170804_dataScript_ven1").sheet1
 
     result = requests.get("http://218.161.81.10/app/sub4.asp?T1=VAN01")
     result.encoding='utf-8'
